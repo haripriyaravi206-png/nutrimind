@@ -70,6 +70,13 @@ footer{background:var(--dark);color:rgba(255,255,255,0.4);padding:1.8rem 6%;disp
 }
 </style>
 </head>
+<script>
+  // Keep backend awake by pinging every 10 minutes
+  setInterval(() => {
+    fetch('https://nutrimind-ajbf.onrender.com/health')
+      .catch(() => {});
+  }, 600000);
+</script>
 <body>
 <nav id="mainNav">
   <a href="/" class="nav-logo">Nutri<span>Mind</span></a>
