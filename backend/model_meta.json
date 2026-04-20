@@ -1,0 +1,48 @@
+{
+  "features": [
+    "age",
+    "bmi",
+    "bp",
+    "glucose",
+    "cholesterol",
+    "smoking",
+    "alcohol",
+    "activity",
+    "gender"
+  ],
+  "activity_map": {
+    "sedentary": 0,
+    "light": 1,
+    "moderate": 2,
+    "active": 2
+  },
+  "gender_map": {
+    "male": 0,
+    "female": 1
+  },
+  "model_name": "Random Forest",
+  "accuracy": 99.5,
+  "conditions": [
+    "Diabetes",
+    "Heart Disease",
+    "Hypertension",
+    "Normal",
+    "Obesity",
+    "Thyroid"
+  ],
+  "use_scaled": false,
+  "all_results": {
+    "Random Forest": {
+      "accuracy": 99.5,
+      "cv_mean": 99.56
+    },
+    "SVM": {
+      "accuracy": 95.11,
+      "cv_mean": 95.66
+    },
+    "Gradient Boosting": {
+      "accuracy": 99.5,
+      "cv_mean": 99.59
+    }
+  }
+}

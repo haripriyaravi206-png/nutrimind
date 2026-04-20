@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Health Form — NutriMind</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --green:#2D6A4F; --lime:#74C69D; --cream:#F8F4EE;
+    --brown:#5C3D2E; --gold:#D4A853; --dark:#1A1A1A; --white:#FFFFFF;
+    --red:#E05A5A;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family:'DM Sans', sans-serif;
+    background:var(--cream);
+    min-height:100vh;
+  }
+
+  /* TOPBAR */
+  .topbar {
+    background:var(--white);
+    border-bottom:1px solid rgba(0,0,0,0.07);
+    padding:1rem 5%;
+    display:flex; align-items:center; justify-content:space-between;
+    position:sticky; top:0; z-index:10;
+  }
+
+  .logo {
+    font-family:'Playfair Display', serif;
+    font-size:1.4rem; font-weight:900;
+    color:var(--green); text-decoration:none;
+  }
+
+  .logo span { color:var(--gold); }
+
+  .user-badge {
+    display:flex; align-items:center; gap:0.6rem;
+    font-size:0.88rem; color:#666;
+  }
+
+  .user-badge strong { color:var(--dark); }
+
+  /* PROGRESS BAR */
+  .progress-wrap {
+    background:var(--white);
+    padding:1.2rem 5%;
+    border-bottom:1px solid rgba(0,0,0,0.06);
+  }
+
+  .progress-steps {
+    display:flex; gap:0;
+    max-width:700px; margin:0 auto;
+  }
+
+  .prog-step {
+    flex:1; text-align:center;
+    position:relative;
+  }
+
+  .prog-step::after {
+    content:'';
+    position:absolute;
+    top:14px; left:50%; right:-50%;
+    height:2px;
+    background:rgba(0,0,0,0.1);
+    z-index:0;
+  }
+
+  .prog-step:last-child::after { display:none; }
+
+  .prog-dot {
+    width:28px; height:28px;
+    border-radius:50%;
+    background:rgba(0,0,0,0.1);
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.75rem; font-weight:600; color:#aaa;
+    margin:0 auto 0.4rem;
+    position:relative; z-index:1;
+    transition:all 0.3s;
+  }
+
+  .prog-step.active .prog-dot {
+    background:var(--green); color:var(--white);
+  }
+
+  .prog-step.done .prog-dot {
+    background:var(--lime); color:var(--white);
+  }
+
+  .prog-label {
+    font-size:0.72rem; color:#aaa; font-weight:500;
+  }
+
+  .prog-step.active .prog-label { color:var(--green); font-weight:600; }
+  .prog-step.done  .prog-label  { color:var(--lime); }
+
+  /* FORM CONTAINER */
+  .container {
+    max-width:720px;
+    margin:2.5rem auto;
+    padding:0 5%;
+  }
+
+  .section-card {
+    background:var(--white);
+    border-radius:20px;
+    padding:2rem;
+    margin-bottom:1.5rem;
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
+    animation:fadeUp 0.4s ease both;
+  }
+
+  @keyframes fadeUp {
+    from{ opacity:0; transform:translateY(16px); }
+    to  { opacity:1; transform:translateY(0); }
+  }
+
+  .section-card:nth-child(2){ animation-delay:0.05s; }
+  .section-card:nth-child(3){ animation-delay:0.1s; }
+  .section-card:nth-child(4){ animation-delay:0.15s; }
+
+  .section-header {
+    display:flex; align-items:center; gap:0.8rem;
+    margin-bottom:1.5rem;
+    padding-bottom:1rem;
+    border-bottom:1px solid rgba(0,0,0,0.06);
+  }
+
+  .section-icon {
+    width:38px; height:38px;
+    border-radius:10px;
+    background:rgba(45,106,79,0.1);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.1rem;
+  }
+
+  .section-header h2 {
+    font-family:'Playfair Display', serif;
+    font-size:1.1rem; font-weight:700;
+    color:var(--dark);
+  }
+
+  .form-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.2rem;
+  }
+
+  .form-grid.three { grid-template-columns:1fr 1fr 1fr; }
+  .form-grid.full  { grid-template-columns:1fr; }
+
+  .form-group { margin-bottom:0; }
+
+  label {
+    display:block;
+    font-size:0.8rem; font-weight:500;
+    color:#555; margin-bottom:0.4rem;
+  }
+
+  input, select {
+    width:100%;
+    padding:0.78rem 1rem;
+    border:2px solid rgba(0,0,0,0.08);
+    border-radius:10px;
+    font-family:'DM Sans', sans-serif;
+    font-size:0.93rem; color:var(--dark);
+    background:var(--cream);
+    outline:none;
+    transition:border-color 0.2s, box-shadow 0.2s;
+    appearance:none;
+  }
+
+  input:focus, select:focus {
+    border-color:var(--green);
+    background:var(--white);
+    box-shadow:0 0 0 4px rgba(45,106,79,0.08);
+  }
+
+  input.error { border-color:var(--red); }
+
+  .input-unit {
+    position:relative;
+  }
+
+  .input-unit input { padding-right:3.5rem; }
+
+  .unit-label {
+    position:absolute; right:1rem; top:50%;
+    transform:translateY(-50%);
+    font-size:0.78rem; color:#aaa; font-weight:500;
+    pointer-events:none;
+  }
+
+  /* BMI Display */
+  .bmi-display {
+    background:rgba(45,106,79,0.06);
+    border:1px solid rgba(45,106,79,0.15);
+    border-radius:10px;
+    padding:0.78rem 1rem;
+    font-size:0.93rem;
+    color:var(--green);
+    font-weight:600;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+
+  .bmi-badge {
+    font-size:0.72rem;
+    padding:0.25rem 0.7rem;
+    border-radius:100px;
+    font-weight:500;
+  }
+
+  /* Toggle buttons (Yes/No) */
+  .toggle-group {
+    display:flex; gap:0.6rem;
+  }
+
+  .toggle-btn {
+    flex:1; padding:0.78rem;
+    border:2px solid rgba(0,0,0,0.1);
+    border-radius:10px;
+    background:var(--cream);
+    font-family:'DM Sans', sans-serif;
+    font-size:0.88rem; font-weight:500;
+    color:#777; cursor:pointer;
+    transition:all 0.2s;
+  }
+
+  .toggle-btn.active {
+    border-color:var(--green);
+    background:rgba(45,106,79,0.08);
+    color:var(--green);
+  }
+
+  /* Health issues checkboxes */
+  .health-issues-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0.7rem;
+  }
+
+  .health-check {
+    display:flex; align-items:center; gap:0.5rem;
+    padding:0.6rem 0.9rem;
+    border:2px solid rgba(0,0,0,0.08);
+    border-radius:10px;
+    cursor:pointer;
+    transition:all 0.2s;
+    background:var(--cream);
+    font-size:0.85rem; color:#555;
+  }
+
+  .health-check input[type="checkbox"] {
+    width:16px; height:16px;
+    accent-color:var(--green);
+    cursor:pointer;
+  }
+
+  .health-check:has(input:checked) {
+    border-color:var(--green);
+    background:rgba(45,106,79,0.08);
+    color:var(--green);
+  }
+
+  /* Submit */
+  .submit-row {
+    display:flex; gap:1rem;
+    margin-top:0.5rem;
+  }
+
+  .btn-submit {
+    flex:1; padding:1rem;
+    background:var(--green); color:var(--white);
+    border:none; border-radius:12px;
+    font-family:'DM Sans', sans-serif;
+    font-size:1rem; font-weight:500;
+    cursor:pointer; transition:all 0.25s;
+    box-shadow:0 4px 16px rgba(45,106,79,0.3);
+  }
+
+  .btn-submit:hover {
+    background:var(--brown);
+    transform:translateY(-1px);
+    box-shadow:0 8px 24px rgba(45,106,79,0.35);
+  }
+
+  .btn-reset {
+    padding:1rem 1.5rem;
+    background:transparent;
+    color:#888; border:2px solid rgba(0,0,0,0.1);
+    border-radius:12px;
+    font-family:'DM Sans', sans-serif;
+    font-size:0.9rem; cursor:pointer;
+    transition:all 0.2s;
+  }
+
+  .btn-reset:hover { border-color:#ccc; color:#555; }
+
+  .error-msg {
+    color:var(--red); font-size:0.76rem;
+    margin-top:0.3rem; display:none;
+  }
+
+  .toast {
+    position:fixed; bottom:2rem; right:2rem;
+    padding:0.9rem 1.4rem; border-radius:12px;
+    font-size:0.88rem; color:var(--white);
+    box-shadow:0 8px 24px rgba(0,0,0,0.15);
+    transform:translateY(100px); opacity:0;
+    transition:all 0.3s; z-index:999;
+    background:var(--red);
+  }
+
+  .toast.show{ transform:translateY(0); opacity:1; }
+  .toast.success{ background:var(--green); }
+
+  @media(max-width:600px){
+    .form-grid, .form-grid.three { grid-template-columns:1fr; }
+    .health-issues-grid { grid-template-columns:1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="index.html" class="logo">Nutri<span>Mind</span></a>
+  <div style="display:flex; align-items:center; gap:1rem;">
+    <a href="index.html" style="
+      display:inline-flex; align-items:center; gap:0.4rem;
+      padding:0.45rem 1.1rem;
+      border:1.5px solid rgba(45,106,79,0.25);
+      border-radius:100px;
+      color:var(--green);
+      font-size:0.85rem; font-weight:500;
+      text-decoration:none;
+      transition:all 0.2s;
+    " onmouseover="this.style.background='rgba(45,106,79,0.08)'"
+       onmouseout="this.style.background='transparent'">
+      🏠 Home
+    </a>
+    <div class="user-badge">👤 Hello, <strong id="userName">User</strong></div>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-wrap">
+  <div class="progress-steps">
+    <div class="prog-step done">
+      <div class="prog-dot">✓</div>
+      <div class="prog-label">Account</div>
+    </div>
+    <div class="prog-step active">
+      <div class="prog-dot">2</div>
+      <div class="prog-label">Health Info</div>
+    </div>
+    <div class="prog-step">
+      <div class="prog-dot">3</div>
+      <div class="prog-label">Diet Plan</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <form id="healthForm" novalidate>
+
+    <!-- BASIC INFO -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-icon">👤</div>
+        <h2>Basic Information</h2>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Age (years)</label>
+          <div class="input-unit">
+            <input type="number" id="age" placeholder="25" min="1" max="120"/>
+            <span class="unit-label">yrs</span>
+          </div>
+          <div class="error-msg" id="ageErr">Enter valid age (1–120).</div>
+        </div>
+        <div class="form-group">
+          <label>Gender</label>
+          <select id="gender">
+            <option value="">Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <div class="error-msg" id="genderErr">Please select gender.</div>
+        </div>
+        <div class="form-group">
+          <label>Height</label>
+          <div class="input-unit">
+            <input type="number" id="height" placeholder="170" oninput="calcBMI()"/>
+            <span class="unit-label">cm</span>
+          </div>
+          <div class="error-msg" id="heightErr">Enter valid height.</div>
+        </div>
+        <div class="form-group">
+          <label>Weight</label>
+          <div class="input-unit">
+            <input type="number" id="weight" placeholder="65" oninput="calcBMI()"/>
+            <span class="unit-label">kg</span>
+          </div>
+          <div class="error-msg" id="weightErr">Enter valid weight.</div>
+        </div>
+      </div>
+
+      <!-- BMI Auto-calc -->
+      <div style="margin-top:1rem;">
+        <label>BMI (auto-calculated)</label>
+        <div class="bmi-display" id="bmiDisplay">
+          <span id="bmiValue">— Enter height & weight</span>
+          <span class="bmi-badge" id="bmiBadge"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VITALS -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-icon">🩺</div>
+        <h2>Health Vitals</h2>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Blood Pressure</label>
+          <div class="input-unit">
+            <input type="number" id="bp" placeholder="120"/>
+            <span class="unit-label">mmHg</span>
+          </div>
+          <div class="error-msg" id="bpErr">Enter valid BP (70–220).</div>
+        </div>
+        <div class="form-group">
+          <label>Blood Sugar (Glucose)</label>
+          <div class="input-unit">
+            <input type="number" id="sugar" placeholder="95"/>
+            <span class="unit-label">mg/dL</span>
+          </div>
+          <div class="error-msg" id="sugarErr">Enter valid sugar level.</div>
+        </div>
+        <div class="form-group">
+          <label>Water Intake / Day</label>
+          <div class="input-unit">
+            <input type="number" id="water" placeholder="2.5" step="0.1"/>
+            <span class="unit-label">L</span>
+          </div>
+          <div class="error-msg" id="waterErr">Enter water intake (0.5–10L).</div>
+        </div>
+        <div class="form-group">
+          <label>Activity Level</label>
+          <select id="activity">
+            <option value="">Select level</option>
+            <option value="sedentary">Sedentary (No exercise)</option>
+            <option value="light">Light (1–2 days/week)</option>
+            <option value="moderate">Moderate (3–5 days/week)</option>
+            <option value="active">Active (6–7 days/week)</option>
+          </select>
+          <div class="error-msg" id="activityErr">Please select activity level.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIFESTYLE -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-icon">🚬</div>
+        <h2>Lifestyle Habits</h2>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Do you Smoke?</label>
+          <div class="toggle-group">
+            <button type="button" class="toggle-btn" onclick="setToggle('smoking',0,this)">No</button>
+            <button type="button" class="toggle-btn" onclick="setToggle('smoking',1,this)">Yes</button>
+          </div>
+          <input type="hidden" id="smoking" value=""/>
+          <div class="error-msg" id="smokingErr">Please select.</div>
+        </div>
+        <div class="form-group">
+          <label>Do you consume Alcohol?</label>
+          <div class="toggle-group">
+            <button type="button" class="toggle-btn" onclick="setToggle('alcohol',0,this)">No</button>
+            <button type="button" class="toggle-btn" onclick="setToggle('alcohol',1,this)">Yes</button>
+          </div>
+          <input type="hidden" id="alcohol" value=""/>
+          <div class="error-msg" id="alcoholErr">Please select.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEALTH ISSUES -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-icon">🏥</div>
+        <h2>Known Health Issues</h2>
+      </div>
+      <p style="font-size:0.85rem;color:#888;margin-bottom:1rem;">
+        Select all that apply (optional — our ML model will also predict from your vitals)
+      </p>
+      <div class="health-issues-grid">
+        <label class="health-check">
+          <input type="checkbox" name="health_issues" value="Diabetes"/> 🩸 Diabetes
+        </label>
+        <label class="health-check">
+          <input type="checkbox" name="health_issues" value="Hypertension"/> 💓 Hypertension
+        </label>
+        <label class="health-check">
+          <input type="checkbox" name="health_issues" value="Obesity"/> ⚖️ Obesity
+        </label>
+        <label class="health-check">
+          <input type="checkbox" name="health_issues" value="Heart Disease"/> ❤️ Heart Disease
+        </label>
+        <label class="health-check">
+          <input type="checkbox" name="health_issues" value="Thyroid"/> 🦋 Thyroid
+        </label>
+        <label class="health-check">
+          <input type="checkbox" name="health_issues" value="Normal"/> ✅ None / Healthy
+        </label>
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-row">
+      <button type="button" class="btn-reset" onclick="document.getElementById('healthForm').reset(); resetForm();">Reset</button>
+      <button type="submit" class="btn-submit" id="submitBtn">Get My Diet Plan →</button>
+    </div>
+
+  </form>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // Set username from localStorage
+  const name = localStorage.getItem('user_name');
+  if (name) document.getElementById('userName').textContent = name.split(' ')[0];
+
+  // BMI Calculation
+  function calcBMI() {
+    const h = parseFloat(document.getElementById('height').value);
+    const w = parseFloat(document.getElementById('weight').value);
+    const display = document.getElementById('bmiValue');
+    const badge   = document.getElementById('bmiBadge');
+
+    if (h > 0 && w > 0) {
+      const bmi = (w / ((h / 100) ** 2)).toFixed(1);
+      display.textContent = `BMI: ${bmi}`;
+
+      let cat, color, bg;
+      if      (bmi < 18.5) { cat='Underweight'; color='#3B82F6'; bg='rgba(59,130,246,0.1)'; }
+      else if (bmi < 25)   { cat='Normal';      color='#2D6A4F'; bg='rgba(45,106,79,0.1)'; }
+      else if (bmi < 30)   { cat='Overweight';  color='#D4A853'; bg='rgba(212,168,83,0.1)'; }
+      else                 { cat='Obese';        color='#E05A5A'; bg='rgba(224,90,90,0.1)'; }
+
+      badge.textContent = cat;
+      badge.style.color = color;
+      badge.style.background = bg;
+    } else {
+      display.textContent = '— Enter height & weight';
+      badge.textContent = '';
+    }
+  }
+
+  // Toggle Yes/No buttons
+  function setToggle(field, val, btn) {
+    document.getElementById(field).value = val;
+    const group = btn.closest('.toggle-group');
+    group.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(field + 'Err').style.display = 'none';
+  }
+
+  function resetForm() {
+    document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('smoking').value = '';
+    document.getElementById('alcohol').value = '';
+    calcBMI();
+  }
+
+  function showToast(msg, type='error') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'toast show ' + (type === 'success' ? 'success' : '');
+    setTimeout(() => t.className = 'toast', 3500);
+  }
+
+  function validateField(id, condition, errId) {
+    const el  = typeof id === 'string' ? document.getElementById(id) : id;
+    const err = document.getElementById(errId);
+    if (!condition) {
+      if (el) el.classList && el.classList.add('error');
+      if (err) err.style.display = 'block';
+      return false;
+    }
+    if (el) el.classList && el.classList.remove('error');
+    if (err) err.style.display = 'none';
+    return true;
+  }
+
+  document.getElementById('healthForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const age      = parseFloat(document.getElementById('age').value);
+    const gender   = document.getElementById('gender').value;
+    const height   = parseFloat(document.getElementById('height').value);
+    const weight   = parseFloat(document.getElementById('weight').value);
+    const bp       = parseFloat(document.getElementById('bp').value);
+    const sugar    = parseFloat(document.getElementById('sugar').value);
+    const water    = parseFloat(document.getElementById('water').value);
+    const activity = document.getElementById('activity').value;
+    const smoking  = document.getElementById('smoking').value;
+    const alcohol  = document.getElementById('alcohol').value;
+    const bmi      = (weight / ((height / 100) ** 2));
+
+    const health_issues = [...document.querySelectorAll('input[name="health_issues"]:checked')]
+                          .map(c => c.value);
+
+    let valid = true;
+    valid = validateField('age',      age >= 1 && age <= 120,          'ageErr')      && valid;
+    valid = validateField('gender',   gender !== '',                    'genderErr')   && valid;
+    valid = validateField('height',   height > 50 && height < 300,     'heightErr')   && valid;
+    valid = validateField('weight',   weight > 1  && weight < 500,     'weightErr')   && valid;
+    valid = validateField('bp',       bp >= 70 && bp <= 220,           'bpErr')       && valid;
+    valid = validateField('sugar',    sugar >= 50 && sugar <= 500,     'sugarErr')    && valid;
+    valid = validateField('water',    water >= 0.5 && water <= 10,     'waterErr')    && valid;
+    valid = validateField('activity', activity !== '',                  'activityErr') && valid;
+    valid = validateField(null,       smoking !== '',                   'smokingErr')  && valid;
+    valid = validateField(null,       alcohol !== '',                   'alcoholErr')  && valid;
+
+    if (!valid) {
+      showToast('Please fill all required fields correctly.');
+      return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Analysing your health...';
+    btn.disabled = true;
+
+    const payload = {
+      age, gender, height, weight,
+      bmi: parseFloat(bmi.toFixed(1)),
+      bp, sugar,
+      water_intake: water,
+      activity_level: activity,
+      smoking: parseInt(smoking),
+      alcohol: parseInt(alcohol),
+      health_issues,
+      email: localStorage.getItem('user_email') || ''
+    };
+
+    try {
+      const res = await fetch('https://nutrimind-backend.onrender.com/predict', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+
+      if (data.status === 'success') {
+        localStorage.setItem('diet_result', JSON.stringify(data));
+        showToast('Diet plan ready! Redirecting...', 'success');
+        setTimeout(() => window.location.href = 'result.html', 1200);
+      } else {
+        showToast(data.message || 'Something went wrong.');
+        btn.textContent = 'Get My Diet Plan →';
+        btn.disabled = false;
+      }
+    } catch(err) {
+      showToast('Cannot connect to server. Please try again.');
+      btn.textContent = 'Get My Diet Plan →';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

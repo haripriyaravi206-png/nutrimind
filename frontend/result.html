@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Your Diet Plan — NutriMind</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  :root {
+    --green:#2D6A4F; --lime:#74C69D; --cream:#F8F4EE;
+    --brown:#5C3D2E; --gold:#D4A853; --dark:#1A1A1A; --white:#FFFFFF;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family:'DM Sans', sans-serif;
+    background:var(--cream);
+    min-height:100vh;
+  }
+
+  /* TOPBAR */
+  .topbar {
+    background:var(--green);
+    padding:1rem 5%;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+
+  .logo {
+    font-family:'Playfair Display', serif;
+    font-size:1.4rem; font-weight:900;
+    color:var(--white); text-decoration:none;
+  }
+
+  .logo span { color:var(--gold); }
+
+  .topbar-actions { display:flex; gap:0.8rem; }
+
+  .btn-outline {
+    padding:0.5rem 1.2rem;
+    border:1.5px solid rgba(255,255,255,0.4);
+    border-radius:100px;
+    color:var(--white); background:transparent;
+    font-family:'DM Sans', sans-serif;
+    font-size:0.85rem; cursor:pointer;
+    transition:all 0.2s;
+  }
+
+  .btn-outline:hover { background:rgba(255,255,255,0.1); border-color:white; }
+
+  /* HERO RESULT BANNER */
+  .result-banner {
+    background:var(--green);
+    padding:0 5% 3rem;
+    text-align:center;
+  }
+
+  .condition-badge {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background:rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,0.25);
+    color:var(--white);
+    padding:0.5rem 1.2rem;
+    border-radius:100px;
+    font-size:0.85rem; font-weight:500;
+    margin-bottom:1rem;
+    animation:fadeUp 0.5s ease both;
+  }
+
+  .result-banner h1 {
+    font-family:'Playfair Display', serif;
+    font-size:clamp(1.8rem, 4vw, 2.8rem);
+    font-weight:900; color:var(--white);
+    margin-bottom:0.5rem;
+    animation:fadeUp 0.5s 0.1s ease both;
+  }
+
+  .result-banner p {
+    color:rgba(255,255,255,0.75);
+    font-size:1rem;
+    animation:fadeUp 0.5s 0.2s ease both;
+  }
+
+  /* STATS ROW */
+  .stats-row {
+    display:flex; gap:1rem;
+    max-width:800px; margin:1.5rem auto 0;
+    animation:fadeUp 0.5s 0.3s ease both;
+  }
+
+  .stat-chip {
+    flex:1;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:14px;
+    padding:1rem;
+    text-align:center;
+  }
+
+  .stat-chip .num {
+    font-family:'Playfair Display', serif;
+    font-size:1.6rem; font-weight:900; color:var(--gold);
+    display:block;
+  }
+
+  .stat-chip .lbl {
+    font-size:0.78rem; color:rgba(255,255,255,0.65);
+    margin-top:0.2rem;
+  }
+
+  /* MAIN CONTENT */
+  .container {
+    max-width:900px;
+    margin:2.5rem auto;
+    padding:0 5%;
+  }
+
+  /* DAY TABS */
+  .week-nav {
+    display:flex; gap:0.5rem;
+    flex-wrap:wrap;
+    margin-bottom:2rem;
+  }
+
+  .week-btn {
+    padding:0.5rem 1.2rem;
+    border:2px solid rgba(0,0,0,0.1);
+    border-radius:100px;
+    background:var(--white);
+    font-family:'DM Sans', sans-serif;
+    font-size:0.85rem; font-weight:500;
+    color:#666; cursor:pointer;
+    transition:all 0.2s;
+  }
+
+  .week-btn.active {
+    background:var(--green); color:var(--white);
+    border-color:var(--green);
+  }
+
+  .week-btn:hover:not(.active) {
+    border-color:var(--green); color:var(--green);
+  }
+
+  /* DAY GRID */
+  .days-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+    gap:1.2rem;
+  }
+
+  .day-card {
+    background:var(--white);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 4px 16px rgba(0,0,0,0.06);
+    transition:transform 0.25s, box-shadow 0.25s;
+    animation:fadeUp 0.4s ease both;
+  }
+
+  .day-card:hover {
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px rgba(0,0,0,0.1);
+  }
+
+  .day-header {
+    background:var(--green);
+    padding:0.9rem 1.2rem;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+
+  .day-num {
+    font-family:'Playfair Display', serif;
+    font-size:1.1rem; font-weight:900; color:var(--white);
+  }
+
+  .day-badge {
+    font-size:0.72rem;
+    background:rgba(255,255,255,0.2);
+    color:var(--white);
+    padding:0.25rem 0.7rem;
+    border-radius:100px;
+  }
+
+  .meal-list { padding:1rem 1.2rem; }
+
+  .meal-item {
+    display:flex; gap:0.7rem;
+    padding:0.55rem 0;
+    border-bottom:1px solid rgba(0,0,0,0.05);
+    align-items:flex-start;
+  }
+
+  .meal-item:last-child { border-bottom:none; }
+
+  .meal-icon {
+    width:28px; height:28px;
+    border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.85rem; flex-shrink:0;
+    margin-top:1px;
+  }
+
+  .meal-icon.breakfast { background:rgba(212,168,83,0.15); }
+  .meal-icon.lunch     { background:rgba(45,106,79,0.12); }
+  .meal-icon.snacks    { background:rgba(116,198,157,0.2); }
+  .meal-icon.dinner    { background:rgba(92,61,46,0.1); }
+
+  .meal-info { flex:1; }
+
+  .meal-type {
+    font-size:0.7rem; font-weight:600;
+    text-transform:uppercase; letter-spacing:0.5px;
+    color:#aaa; margin-bottom:2px;
+  }
+
+  .meal-food {
+    font-size:0.85rem; color:var(--dark); line-height:1.4;
+  }
+
+  /* TIPS SECTION */
+  .tips-section {
+    background:var(--white);
+    border-radius:20px;
+    padding:2rem;
+    margin-bottom:2rem;
+    box-shadow:0 4px 16px rgba(0,0,0,0.05);
+  }
+
+  .tips-section h3 {
+    font-family:'Playfair Display', serif;
+    font-size:1.2rem; font-weight:700;
+    color:var(--dark); margin-bottom:1.2rem;
+    display:flex; align-items:center; gap:0.5rem;
+  }
+
+  .tips-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; }
+
+  .tip-item {
+    display:flex; gap:0.7rem; align-items:flex-start;
+    padding:0.8rem;
+    background:var(--cream);
+    border-radius:12px;
+    font-size:0.85rem; color:#555; line-height:1.5;
+  }
+
+  .tip-item span:first-child { font-size:1.1rem; flex-shrink:0; }
+
+  /* Download / Redo buttons */
+  .action-row {
+    display:flex; gap:1rem; margin-bottom:3rem; flex-wrap:wrap;
+  }
+
+  .btn-primary {
+    padding:0.9rem 2rem;
+    background:var(--green); color:var(--white);
+    border:none; border-radius:12px;
+    font-family:'DM Sans', sans-serif;
+    font-size:0.95rem; font-weight:500;
+    cursor:pointer; transition:all 0.25s;
+    box-shadow:0 4px 16px rgba(45,106,79,0.3);
+    text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem;
+  }
+
+  .btn-primary:hover {
+    background:var(--brown);
+    transform:translateY(-1px);
+  }
+
+  .btn-sec {
+    padding:0.9rem 2rem;
+    background:transparent; color:var(--dark);
+    border:2px solid rgba(0,0,0,0.15);
+    border-radius:12px;
+    font-family:'DM Sans', sans-serif;
+    font-size:0.95rem; font-weight:500;
+    cursor:pointer; transition:all 0.25s;
+    text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem;
+  }
+
+  .btn-sec:hover { border-color:var(--green); color:var(--green); }
+
+  @keyframes fadeUp {
+    from{ opacity:0; transform:translateY(16px); }
+    to  { opacity:1; transform:translateY(0); }
+  }
+
+  @media(max-width:600px) {
+    .stats-row { flex-wrap:wrap; }
+    .stat-chip { min-width:calc(50% - 0.5rem); }
+    .tips-grid { grid-template-columns:1fr; }
+    .days-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="index.html" class="logo">Nutri<span>Mind</span></a>
+  <div class="topbar-actions">
+    <button class="btn-outline" onclick="window.print()">🖨 Print</button>
+    <button class="btn-outline" onclick="window.location.href='form.html'">🔄 Redo</button>
+  </div>
+</div>
+
+<!-- BANNER -->
+<div class="result-banner">
+  <div class="condition-badge" id="conditionBadge">🤖 Analysing...</div>
+  <h1 id="bannerTitle">Your Personalized Diet Plan</h1>
+  <p>30-day meal plan tailored to your health condition</p>
+  <div class="stats-row">
+    <div class="stat-chip">
+      <span class="num">30</span>
+      <div class="lbl">Days Planned</div>
+    </div>
+    <div class="stat-chip">
+      <span class="num">4</span>
+      <div class="lbl">Meals / Day</div>
+    </div>
+    <div class="stat-chip">
+      <span class="num" id="bmiStat">—</span>
+      <div class="lbl">Your BMI</div>
+    </div>
+    <div class="stat-chip">
+      <span class="num">120</span>
+      <div class="lbl">Total Meals</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+  <!-- WEEK FILTER -->
+  <div class="week-nav">
+    <button class="week-btn active" onclick="filterWeek(0, this)">All 30 Days</button>
+    <button class="week-btn" onclick="filterWeek(1, this)">Week 1 (D1–7)</button>
+    <button class="week-btn" onclick="filterWeek(2, this)">Week 2 (D8–14)</button>
+    <button class="week-btn" onclick="filterWeek(3, this)">Week 3 (D15–21)</button>
+    <button class="week-btn" onclick="filterWeek(4, this)">Week 4 (D22–30)</button>
+  </div>
+
+  <!-- DAYS GRID -->
+  <div class="days-grid" id="daysGrid">
+    <div style="text-align:center;padding:3rem;color:#aaa;grid-column:1/-1;">
+      Loading your diet plan...
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="tips-section" style="margin-top:2.5rem;" id="tipsSection">
+    <h3>💡 General Tips for Your Condition</h3>
+    <div class="tips-grid" id="tipsGrid"></div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="action-row">
+    <button class="btn-primary" onclick="downloadPlan()">⬇ Download Plan (PDF)</button>
+    <a href="form.html" class="btn-sec">🔄 Update My Details</a>
+    <a href="index.html" class="btn-sec">🏠 Home</a>
+  </div>
+
+</div>
+
+<script>
+  const conditionTips = {
+    "Diabetes": [
+      "🕐 Eat at regular intervals every 3–4 hours",
+      "🚫 Avoid white rice, maida, sugary drinks",
+      "🥦 Include more fibre — oats, dals, vegetables",
+      "💧 Drink 2.5–3L of water daily",
+      "🏃 30 minutes of walking after meals helps",
+      "🧂 Limit salt and processed foods"
+    ],
+    "Hypertension": [
+      "🧂 Restrict sodium — use less salt while cooking",
+      "🍌 Eat potassium-rich foods: banana, sweet potato",
+      "🚫 Avoid pickles, papad, processed/packaged foods",
+      "💧 Stay well hydrated throughout the day",
+      "🧘 Practice stress management: yoga, meditation",
+      "🥗 Follow DASH diet principles"
+    ],
+    "Obesity": [
+      "⏱ Practice portion control — smaller plates help",
+      "🚫 Avoid sugary beverages, fried foods, sweets",
+      "🥗 Fill half your plate with vegetables always",
+      "💧 Drink a glass of water before every meal",
+      "🚶 Aim for 10,000 steps daily minimum",
+      "😴 Get 7–8 hours of sleep — poor sleep increases weight"
+    ],
+    "Heart Disease": [
+      "🥑 Use healthy fats: olive oil, avocado, nuts",
+      "🚫 Avoid trans fats, fried foods, full-fat dairy",
+      "🐟 Eat omega-3 rich fish 2–3 times a week",
+      "🧂 Keep sodium below 1500mg per day",
+      "🚬 Quit smoking — it doubles heart disease risk",
+      "🏊 Light exercise like walking or swimming daily"
+    ],
+    "Thyroid": [
+      "🥜 Eat selenium-rich foods: Brazil nuts, eggs, fish",
+      "🦐 Include iodine sources: seafood, dairy (if tolerated)",
+      "🥦 Limit raw goitrogenic foods: cabbage, broccoli",
+      "🚫 Avoid soy products in excess",
+      "💊 Take thyroid medication on empty stomach",
+      "💧 Stay well hydrated and maintain meal timing"
+    ],
+    "Normal": [
+      "🌈 Eat a rainbow — variety of colourful vegetables",
+      "💧 Drink 8–10 glasses of water daily",
+      "🏃 Exercise at least 150 minutes per week",
+      "😴 Maintain 7–9 hours of quality sleep",
+      "🚫 Limit processed and ultra-processed foods",
+      "🧘 Manage stress through mindfulness or hobbies"
+    ]
+  };
+
+  const conditionIcons = {
+    "Diabetes": "🩸", "Hypertension": "💓", "Obesity": "⚖️",
+    "Heart Disease": "❤️", "Thyroid": "🦋", "Normal": "✅"
+  };
+
+  let allDays = [];
+  let currentWeek = 0;
+
+  function getDayWeek(day) {
+    if (day <= 7)  return 1;
+    if (day <= 14) return 2;
+    if (day <= 21) return 3;
+    return 4;
+  }
+
+  function renderDays(days) {
+    const grid = document.getElementById('daysGrid');
+    grid.innerHTML = '';
+
+    if (!days || days.length === 0) {
+      grid.innerHTML = '<div style="text-align:center;padding:3rem;color:#aaa;grid-column:1/-1;">No data found.</div>';
+      return;
+    }
+
+    days.forEach((day, idx) => {
+      const card = document.createElement('div');
+      card.className = 'day-card';
+      card.style.animationDelay = (idx * 0.03) + 's';
+
+      const weekLabels = ['','Week 1','Week 2','Week 3','Week 4'];
+      const week = getDayWeek(day.day);
+
+      card.innerHTML = `
+        <div class="day-header">
+          <div class="day-num">Day ${day.day}</div>
+          <div class="day-badge">${weekLabels[week]}</div>
+        </div>
+        <div class="meal-list">
+          <div class="meal-item">
+            <div class="meal-icon breakfast">☀️</div>
+            <div class="meal-info">
+              <div class="meal-type">Breakfast</div>
+              <div class="meal-food">${day.breakfast}</div>
+            </div>
+          </div>
+          <div class="meal-item">
+            <div class="meal-icon lunch">🍛</div>
+            <div class="meal-info">
+              <div class="meal-type">Lunch</div>
+              <div class="meal-food">${day.lunch}</div>
+            </div>
+          </div>
+          <div class="meal-item">
+            <div class="meal-icon snacks">🍎</div>
+            <div class="meal-info">
+              <div class="meal-type">Snacks</div>
+              <div class="meal-food">${day.snacks}</div>
+            </div>
+          </div>
+          <div class="meal-item">
+            <div class="meal-icon dinner">🌙</div>
+            <div class="meal-info">
+              <div class="meal-type">Dinner</div>
+              <div class="meal-food">${day.dinner}</div>
+            </div>
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function filterWeek(week, btn) {
+    currentWeek = week;
+    document.querySelectorAll('.week-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filtered = week === 0 ? allDays : allDays.filter(d => getDayWeek(d.day) === week);
+    renderDays(filtered);
+  }
+
+  function renderTips(condition) {
+    const tips = conditionTips[condition] || conditionTips["Normal"];
+    const grid = document.getElementById('tipsGrid');
+    grid.innerHTML = tips.map(t => `
+      <div class="tip-item">
+        <span>${t.split(' ')[0]}</span>
+        <span>${t.split(' ').slice(1).join(' ')}</span>
+      </div>
+    `).join('');
+  }
+
+  function downloadPlan() {
+    const result = JSON.parse(localStorage.getItem('diet_result') || '{}');
+    const cond   = result.predicted_condition || 'Your Condition';
+    const bmi    = result.bmi || '—';
+    const plan   = result.diet_plan || [];
+    const date   = new Date().toLocaleDateString('en-IN', { day:'2-digit', month:'long', year:'numeric' });
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+
+    const pageW  = 210;
+    const pageH  = 297;
+    const margin = 14;
+    const colW   = pageW - margin * 2;
+
+    // ── Colour palette ──
+    const GREEN  = [45,  106, 79];
+    const GOLD   = [180, 130, 50];
+    const DARK   = [26,  26,  26];
+    const WHITE  = [255, 255, 255];
+    const CREAM  = [248, 244, 238];
+    const LGRAY  = [240, 240, 240];
+
+    // ── Helper ──
+    function addPageIfNeeded(y, needed = 20) {
+      if (y + needed > pageH - 14) {
+        doc.addPage();
+        return 16;
+      }
+      return y;
+    }
+
+    // ══════════════════════════════════
+    // PAGE 1 — COVER
+    // ══════════════════════════════════
+
+    // Green header band
+    doc.setFillColor(...GREEN);
+    doc.rect(0, 0, pageW, 70, 'F');
+
+    // Brand name
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(32);
+    doc.setTextColor(...WHITE);
+    doc.text('NutriMind', margin, 30);
+
+    // Gold underline accent
+    doc.setDrawColor(...GOLD);
+    doc.setLineWidth(1.2);
+    doc.line(margin, 33, margin + 52, 33);
+
+    // Tagline
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(11);
+    doc.setTextColor(220, 240, 230);
+    doc.text(' Personalized Diet Planning', margin, 42);
+
+    // Condition badge box
+    doc.setFillColor(...GOLD);
+    doc.roundedRect(margin, 50, colW, 12, 3, 3, 'F');
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(12);
+    doc.setTextColor(...DARK);
+    doc.text(`${cond.toUpperCase()} — 30-Day Diet Plan`, pageW / 2, 58, { align: 'center' });
+
+    // Info cards row
+    let y = 82;
+    const cards = [
+      { label: 'Health Condition', value: cond },
+      { label: 'BMI',              value: String(bmi) },
+      { label: 'Generated On',     value: date },
+      { label: 'Total Days',        value: '30 Days' },
+    ];
+    const cw = colW / 4 - 2;
+    cards.forEach((card, i) => {
+      const cx = margin + i * (cw + 2.7);
+      doc.setFillColor(...CREAM);
+      doc.roundedRect(cx, y, cw, 22, 3, 3, 'F');
+      doc.setDrawColor(...GREEN);
+      doc.setLineWidth(0.4);
+      doc.roundedRect(cx, y, cw, 22, 3, 3, 'S');
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7);
+      doc.setTextColor(120, 120, 120);
+      doc.text(card.label, cx + cw / 2, y + 7, { align: 'center' });
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(9);
+      doc.setTextColor(...DARK);
+      doc.text(card.value, cx + cw / 2, y + 15, { align: 'center' });
+    });
+
+    // Divider
+    y = 114;
+    doc.setDrawColor(...GREEN);
+    doc.setLineWidth(0.5);
+    doc.line(margin, y, pageW - margin, y);
+
+    // Section title
+    y += 8;
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(13);
+    doc.setTextColor(...GREEN);
+    doc.text('Your 30-Day Personalized Meal Plan', margin, y);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9);
+    doc.setTextColor(130, 130, 130);
+    doc.text('Each day includes Breakfast, Lunch, Snacks & Dinner', margin, y + 6);
+
+    y += 16;
+
+    // ── Column headers ──
+    doc.setFillColor(...GREEN);
+    doc.rect(margin, y, colW, 8, 'F');
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8);
+    doc.setTextColor(...WHITE);
+    const cols = { day:14, meal:42, food:80 };
+    doc.text('DAY',       margin + 3, y + 5.5);
+    doc.text('MEAL',      margin + 16, y + 5.5);
+    doc.text('FOOD ITEM', margin + 44, y + 5.5);
+    y += 10;
+
+    // ── Meal rows ──
+    const mealTypes = [
+      { key: 'breakfast', label: '☀ Breakfast', color: [212, 168, 50] },
+      { key: 'lunch',     label: '🍛 Lunch',     color: [...GREEN]     },
+      { key: 'snacks',    label: '🍎 Snacks',    color: [80, 160, 110] },
+      { key: 'dinner',    label: '🌙 Dinner',    color: [92, 61, 46]   },
+    ];
+
+    plan.forEach((day, di) => {
+      // Day card header
+      y = addPageIfNeeded(y, 44);
+
+      doc.setFillColor(...CREAM);
+      doc.roundedRect(margin, y, colW, 7, 2, 2, 'F');
+      doc.setDrawColor(...GREEN);
+      doc.setLineWidth(0.3);
+      doc.roundedRect(margin, y, colW, 7, 2, 2, 'S');
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(9);
+      doc.setTextColor(...GREEN);
+      doc.text(`Day ${day.day}`, margin + 3, y + 5);
+
+      const weekNum = Math.ceil(day.day / 7);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7.5);
+      doc.setTextColor(130, 130, 130);
+      doc.text(`Week ${weekNum}`, pageW - margin - 3, y + 5, { align: 'right' });
+      y += 9;
+
+      // Meal rows for this day
+      mealTypes.forEach((meal, mi) => {
+        y = addPageIfNeeded(y, 12);
+
+        const food  = day[meal.key] || '—';
+        const lines = doc.splitTextToSize(food, colW - 46);
+        const rowH  = Math.max(9, lines.length * 5 + 4);
+
+        // Alternate row bg
+        if (mi % 2 === 0) {
+          doc.setFillColor(250, 252, 250);
+          doc.rect(margin, y, colW, rowH, 'F');
+        }
+
+        // Meal type color strip
+        doc.setFillColor(...meal.color);
+        doc.rect(margin, y, 2, rowH, 'F');
+
+        // Meal label
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(7.5);
+        doc.setTextColor(...meal.color);
+        doc.text(meal.label.replace(/./u, '').trim(), margin + 5, y + rowH / 2 + 1.5);
+
+        // Food text
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8);
+        doc.setTextColor(...DARK);
+        doc.text(lines, margin + 44, y + 5);
+
+        // Bottom border
+        doc.setDrawColor(230, 230, 230);
+        doc.setLineWidth(0.2);
+        doc.line(margin, y + rowH, pageW - margin, y + rowH);
+
+        y += rowH;
+      });
+
+      y += 4; // gap between days
+    });
+
+    // ══════════════════════════════════
+    // LAST PAGE — TIPS
+    // ══════════════════════════════════
+    doc.addPage();
+    y = 20;
+
+    doc.setFillColor(...GREEN);
+    doc.rect(0, 0, pageW, 22, 'F');
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(14);
+    doc.setTextColor(...WHITE);
+    doc.text(`Diet Tips for ${cond}`, margin, 14);
+
+    y = 32;
+
+    const conditionTipsLocal = {
+      "Diabetes":      ["Eat at regular intervals every 3-4 hours","Avoid white rice, maida, sugary drinks","Include more fibre: oats, dals, vegetables","Drink 2.5-3L of water daily","30 minutes of walking after meals helps","Limit salt and processed foods"],
+      "Hypertension":  ["Restrict sodium - use less salt while cooking","Eat potassium-rich foods: banana, sweet potato","Avoid pickles, papad, processed foods","Stay well hydrated throughout the day","Practice stress management: yoga, meditation","Follow DASH diet principles"],
+      "Obesity":       ["Practice portion control - smaller plates help","Avoid sugary beverages, fried foods, sweets","Fill half your plate with vegetables always","Drink a glass of water before every meal","Aim for 10,000 steps daily minimum","Get 7-8 hours of sleep"],
+      "Heart Disease": ["Use healthy fats: olive oil, avocado, nuts","Avoid trans fats, fried foods, full-fat dairy","Eat omega-3 rich fish 2-3 times a week","Keep sodium below 1500mg per day","Quit smoking - it doubles heart disease risk","Light exercise like walking or swimming daily"],
+      "Thyroid":       ["Eat selenium-rich foods: Brazil nuts, eggs, fish","Include iodine sources: seafood, dairy","Limit raw goitrogenic foods: cabbage, broccoli","Avoid soy products in excess","Take thyroid medication on empty stomach","Stay well hydrated and maintain meal timing"],
+      "Normal":        ["Eat a rainbow - variety of colourful vegetables","Drink 8-10 glasses of water daily","Exercise at least 150 minutes per week","Maintain 7-9 hours of quality sleep","Limit processed and ultra-processed foods","Manage stress through mindfulness or hobbies"],
+    };
+
+    const tips = conditionTipsLocal[cond] || conditionTipsLocal["Normal"];
+    tips.forEach((tip, i) => {
+      doc.setFillColor(i % 2 === 0 ? 248 : 255, i % 2 === 0 ? 252 : 255, i % 2 === 0 ? 248 : 255);
+      doc.roundedRect(margin, y, colW, 12, 2, 2, 'F');
+      doc.setDrawColor(...GREEN);
+      doc.setLineWidth(0.3);
+      doc.line(margin, y, margin, y + 12);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(8);
+      doc.setTextColor(...GREEN);
+      doc.text(`${i + 1}.`, margin + 3, y + 8);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(...DARK);
+      doc.text(tip, margin + 9, y + 8);
+      y += 15;
+    });
+
+    // Footer on every page
+    const totalPages = doc.internal.getNumberOfPages();
+    for (let p = 1; p <= totalPages; p++) {
+      doc.setPage(p);
+      doc.setFillColor(...GREEN);
+      doc.rect(0, pageH - 10, pageW, 10, 'F');
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7);
+      doc.setTextColor(...WHITE);
+      doc.text('NutriMind — Diet Planning | Final Year Project', margin, pageH - 4);
+      doc.text(`Page ${p} of ${totalPages}`, pageW - margin, pageH - 4, { align: 'right' });
+    }
+
+    doc.save(`NutriMind_DietPlan_${cond.replace(' ', '_')}.pdf`);
+  }
+
+  // ── Load result from localStorage ──
+  window.onload = function() {
+    const raw = localStorage.getItem('diet_result');
+    if (!raw) {
+      document.getElementById('bannerTitle').textContent = 'No Result Found';
+      document.getElementById('conditionBadge').textContent = '⚠ Please fill the form first';
+      document.getElementById('daysGrid').innerHTML = `
+        <div style="text-align:center;padding:3rem;color:#aaa;grid-column:1/-1;">
+          No diet plan found. <a href="form.html" style="color:var(--green)">Fill the form</a> to get your plan.
+        </div>`;
+      return;
+    }
+
+    const result = JSON.parse(raw);
+    const cond   = result.predicted_condition || 'Normal';
+    const icon   = conditionIcons[cond] || '🥗';
+    const bmi    = result.bmi || '—';
+
+    document.getElementById('conditionBadge').textContent = `${icon} ${cond} Diet Plan`;
+    document.getElementById('bannerTitle').textContent    = `Your ${cond} Diet Plan`;
+    document.getElementById('bmiStat').textContent        = bmi;
+
+    allDays = result.diet_plan || [];
+    renderDays(allDays);
+    renderTips(cond);
+  };
+</script>
+</body>
+</html>

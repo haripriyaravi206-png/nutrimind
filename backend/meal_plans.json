@@ -1,0 +1,1274 @@
+{
+  "Diabetes": [
+    {
+      "day": 1,
+      "breakfast": "Oats porridge with flaxseeds",
+      "lunch": "Brown rice + dal + salad",
+      "snacks": "Handful of almonds",
+      "dinner": "Grilled fish + steamed vegetables"
+    },
+    {
+      "day": 2,
+      "breakfast": "Methi roti + curd",
+      "lunch": "Jowar roti + sambar + cabbage sabzi",
+      "snacks": "Cucumber slices",
+      "dinner": "Moong dal khichdi"
+    },
+    {
+      "day": 3,
+      "breakfast": "Vegetable upma (no potato)",
+      "lunch": "Quinoa pulao + raita",
+      "snacks": "Roasted chana",
+      "dinner": "Grilled chicken + stir-fry veggies"
+    },
+    {
+      "day": 4,
+      "breakfast": "Besan chilla + green chutney",
+      "lunch": "Multigrain roti + palak dal",
+      "snacks": "Apple slices",
+      "dinner": "Egg curry + roti"
+    },
+    {
+      "day": 5,
+      "breakfast": "Idli (2) + sambar",
+      "lunch": "Brown rice + rajma + salad",
+      "snacks": "Walnuts (5)",
+      "dinner": "Paneer tikka + salad"
+    },
+    {
+      "day": 6,
+      "breakfast": "Ragi dosa + coconut chutney",
+      "lunch": "Barley khichdi + curd",
+      "snacks": "Pear",
+      "dinner": "Dal soup + steamed broccoli"
+    },
+    {
+      "day": 7,
+      "breakfast": "Boiled eggs (2) + whole wheat toast",
+      "lunch": "Multigrain roti + chicken curry",
+      "snacks": "Roasted makhana",
+      "dinner": "Vegetable soup + roti"
+    },
+    {
+      "day": 8,
+      "breakfast": "Overnight oats + chia seeds",
+      "lunch": "Brown rice + fish curry",
+      "snacks": "Orange",
+      "dinner": "Tofu stir-fry + quinoa"
+    },
+    {
+      "day": 9,
+      "breakfast": "Sprouts salad + green tea",
+      "lunch": "Jowar roti + dal fry",
+      "snacks": "Almonds (10)",
+      "dinner": "Grilled paneer + salad"
+    },
+    {
+      "day": 10,
+      "breakfast": "Whole wheat poha + lemon",
+      "lunch": "Bajra roti + methi sabzi",
+      "snacks": "Guava",
+      "dinner": "Egg bhurji + multigrain toast"
+    },
+    {
+      "day": 11,
+      "breakfast": "Ragi porridge + nuts",
+      "lunch": "Brown rice + moong dal + sabzi",
+      "snacks": "Roasted pumpkin seeds",
+      "dinner": "Chicken soup + roti"
+    },
+    {
+      "day": 12,
+      "breakfast": "Besan chilla + mint chutney",
+      "lunch": "Quinoa + rajma + salad",
+      "snacks": "Cucumber + hummus",
+      "dinner": "Palak paneer + roti"
+    },
+    {
+      "day": 13,
+      "breakfast": "Oats with almonds + cinnamon",
+      "lunch": "Multigrain roti + dal tadka",
+      "snacks": "Roasted chana",
+      "dinner": "Grilled fish + veggies"
+    },
+    {
+      "day": 14,
+      "breakfast": "Vegetable omelette (2 eggs)",
+      "lunch": "Brown rice + sambar + salad",
+      "snacks": "Apple",
+      "dinner": "Moong dal khichdi"
+    },
+    {
+      "day": 15,
+      "breakfast": "Idli (2) + vegetable sambar",
+      "lunch": "Jowar roti + chicken curry",
+      "snacks": "Walnuts",
+      "dinner": "Steamed veggies + tofu"
+    },
+    {
+      "day": 16,
+      "breakfast": "Methi paratha (1) + curd",
+      "lunch": "Barley khichdi + raita",
+      "snacks": "Pear",
+      "dinner": "Dal soup + multigrain roti"
+    },
+    {
+      "day": 17,
+      "breakfast": "Ragi dosa + sambar",
+      "lunch": "Multigrain roti + palak paneer",
+      "snacks": "Roasted makhana",
+      "dinner": "Egg curry + salad"
+    },
+    {
+      "day": 18,
+      "breakfast": "Sprouts + poha mix",
+      "lunch": "Brown rice + rajma",
+      "snacks": "Guava",
+      "dinner": "Grilled chicken + stir-fry"
+    },
+    {
+      "day": 19,
+      "breakfast": "Overnight oats + flaxseeds",
+      "lunch": "Bajra roti + sabzi + dal",
+      "snacks": "Almonds",
+      "dinner": "Vegetable soup + roti"
+    },
+    {
+      "day": 20,
+      "breakfast": "Boiled eggs + oats",
+      "lunch": "Quinoa + dal + salad",
+      "snacks": "Orange",
+      "dinner": "Paneer bhurji + roti"
+    },
+    {
+      "day": 21,
+      "breakfast": "Besan chilla + yogurt",
+      "lunch": "Multigrain roti + fish curry",
+      "snacks": "Roasted pumpkin seeds",
+      "dinner": "Khichdi + curd"
+    },
+    {
+      "day": 22,
+      "breakfast": "Ragi porridge + banana (small)",
+      "lunch": "Brown rice + moong dal",
+      "snacks": "Cucumber slices",
+      "dinner": "Grilled fish + salad"
+    },
+    {
+      "day": 23,
+      "breakfast": "Vegetable upma + green tea",
+      "lunch": "Jowar roti + egg curry",
+      "snacks": "Roasted chana",
+      "dinner": "Tofu sabzi + quinoa"
+    },
+    {
+      "day": 24,
+      "breakfast": "Whole wheat toast + peanut butter",
+      "lunch": "Barley pulao + curd",
+      "snacks": "Apple",
+      "dinner": "Chicken soup + roti"
+    },
+    {
+      "day": 25,
+      "breakfast": "Oats with nuts + seeds",
+      "lunch": "Multigrain roti + rajma",
+      "snacks": "Walnuts",
+      "dinner": "Steamed broccoli + dal"
+    },
+    {
+      "day": 26,
+      "breakfast": "Idli (2) + coconut chutney",
+      "lunch": "Brown rice + sambar",
+      "snacks": "Pear",
+      "dinner": "Moong dal + roti"
+    },
+    {
+      "day": 27,
+      "breakfast": "Methi roti + dal",
+      "lunch": "Quinoa + chicken + salad",
+      "snacks": "Roasted makhana",
+      "dinner": "Palak paneer + roti"
+    },
+    {
+      "day": 28,
+      "breakfast": "Besan omelette + toast",
+      "lunch": "Bajra roti + sabzi",
+      "snacks": "Guava",
+      "dinner": "Egg bhurji + salad"
+    },
+    {
+      "day": 29,
+      "breakfast": "Ragi dosa + sambar",
+      "lunch": "Brown rice + dal + salad",
+      "snacks": "Almonds",
+      "dinner": "Grilled paneer + veggies"
+    },
+    {
+      "day": 30,
+      "breakfast": "Overnight oats + chia",
+      "lunch": "Multigrain roti + fish curry",
+      "snacks": "Roasted chana",
+      "dinner": "Vegetable soup + roti"
+    }
+  ],
+  "Hypertension": [
+    {
+      "day": 1,
+      "breakfast": "Banana + oats porridge (low salt)",
+      "lunch": "Brown rice + dal (no salt extra) + salad",
+      "snacks": "Watermelon slices",
+      "dinner": "Grilled fish + steamed veggies"
+    },
+    {
+      "day": 2,
+      "breakfast": "Whole wheat toast + avocado",
+      "lunch": "Multigrain roti + palak dal",
+      "snacks": "Handful of almonds",
+      "dinner": "Dal khichdi + curd"
+    },
+    {
+      "day": 3,
+      "breakfast": "Smoothie (spinach+banana+milk)",
+      "lunch": "Brown rice + rajma (low sodium)",
+      "snacks": "Orange",
+      "dinner": "Grilled chicken + salad"
+    },
+    {
+      "day": 4,
+      "breakfast": "Idli (2) + sambar (low salt)",
+      "lunch": "Jowar roti + sabzi + dal",
+      "snacks": "Coconut water",
+      "dinner": "Paneer curry + roti"
+    },
+    {
+      "day": 5,
+      "breakfast": "Oats with banana + flaxseeds",
+      "lunch": "Quinoa + moong dal + salad",
+      "snacks": "Walnuts (5)",
+      "dinner": "Vegetable soup + roti"
+    },
+    {
+      "day": 6,
+      "breakfast": "Poha (low salt) + lemon",
+      "lunch": "Bajra roti + methi sabzi",
+      "snacks": "Pomegranate",
+      "dinner": "Steamed fish + veggies"
+    },
+    {
+      "day": 7,
+      "breakfast": "Boiled eggs (2) + toast (no salt)",
+      "lunch": "Multigrain roti + chicken (low salt)",
+      "snacks": "Cucumber slices",
+      "dinner": "Moong dal + roti"
+    },
+    {
+      "day": 8,
+      "breakfast": "Ragi porridge + nuts",
+      "lunch": "Brown rice + sambar",
+      "snacks": "Guava",
+      "dinner": "Egg curry (low salt) + salad"
+    },
+    {
+      "day": 9,
+      "breakfast": "Besan chilla (no salt) + chutney",
+      "lunch": "Barley khichdi + raita",
+      "snacks": "Apple",
+      "dinner": "Tofu stir-fry + quinoa"
+    },
+    {
+      "day": 10,
+      "breakfast": "Sprouts salad + green tea",
+      "lunch": "Multigrain roti + dal fry",
+      "snacks": "Roasted pumpkin seeds",
+      "dinner": "Palak paneer + roti"
+    },
+    {
+      "day": 11,
+      "breakfast": "Overnight oats + chia seeds",
+      "lunch": "Brown rice + fish curry (low salt)",
+      "snacks": "Watermelon",
+      "dinner": "Chicken soup + roti"
+    },
+    {
+      "day": 12,
+      "breakfast": "Vegetable omelette + toast",
+      "lunch": "Jowar roti + rajma (low sodium)",
+      "snacks": "Almonds",
+      "dinner": "Grilled paneer + salad"
+    },
+    {
+      "day": 13,
+      "breakfast": "Ragi dosa + coconut chutney",
+      "lunch": "Quinoa pulao + raita",
+      "snacks": "Orange",
+      "dinner": "Dal soup + steamed broccoli"
+    },
+    {
+      "day": 14,
+      "breakfast": "Banana smoothie + oats",
+      "lunch": "Multigrain roti + sabzi",
+      "snacks": "Coconut water",
+      "dinner": "Fish curry + roti"
+    },
+    {
+      "day": 15,
+      "breakfast": "Idli (2) + vegetable sambar",
+      "lunch": "Brown rice + moong dal",
+      "snacks": "Guava",
+      "dinner": "Egg bhurji + salad"
+    },
+    {
+      "day": 16,
+      "breakfast": "Whole wheat toast + peanut butter",
+      "lunch": "Bajra roti + methi dal",
+      "snacks": "Walnuts",
+      "dinner": "Tofu sabzi + roti"
+    },
+    {
+      "day": 17,
+      "breakfast": "Oats with flaxseeds + milk",
+      "lunch": "Multigrain roti + chicken curry",
+      "snacks": "Pomegranate",
+      "dinner": "Moong dal khichdi"
+    },
+    {
+      "day": 18,
+      "breakfast": "Besan chilla + yogurt",
+      "lunch": "Barley pulao + curd",
+      "snacks": "Apple",
+      "dinner": "Grilled fish + veggies"
+    },
+    {
+      "day": 19,
+      "breakfast": "Sprouts + poha mix",
+      "lunch": "Brown rice + palak dal",
+      "snacks": "Roasted makhana",
+      "dinner": "Paneer tikka + salad"
+    },
+    {
+      "day": 20,
+      "breakfast": "Boiled eggs + oats",
+      "lunch": "Quinoa + rajma",
+      "snacks": "Watermelon",
+      "dinner": "Dal soup + roti"
+    },
+    {
+      "day": 21,
+      "breakfast": "Ragi porridge + banana",
+      "lunch": "Jowar roti + sabzi + dal",
+      "snacks": "Almonds",
+      "dinner": "Chicken salad + roti"
+    },
+    {
+      "day": 22,
+      "breakfast": "Vegetable upma (low salt)",
+      "lunch": "Multigrain roti + fish (low salt)",
+      "snacks": "Cucumber slices",
+      "dinner": "Steamed veggies + tofu"
+    },
+    {
+      "day": 23,
+      "breakfast": "Overnight oats + nuts",
+      "lunch": "Brown rice + sambar",
+      "snacks": "Orange",
+      "dinner": "Grilled paneer + quinoa"
+    },
+    {
+      "day": 24,
+      "breakfast": "Methi paratha (no salt) + curd",
+      "lunch": "Bajra roti + moong dal",
+      "snacks": "Coconut water",
+      "dinner": "Egg curry + salad"
+    },
+    {
+      "day": 25,
+      "breakfast": "Smoothie (banana+spinach)",
+      "lunch": "Multigrain roti + rajma",
+      "snacks": "Guava",
+      "dinner": "Vegetable soup + roti"
+    },
+    {
+      "day": 26,
+      "breakfast": "Idli + sambar",
+      "lunch": "Brown rice + fish curry",
+      "snacks": "Walnuts",
+      "dinner": "Dal khichdi + curd"
+    },
+    {
+      "day": 27,
+      "breakfast": "Oats with seeds",
+      "lunch": "Quinoa + dal + salad",
+      "snacks": "Pomegranate",
+      "dinner": "Moong dal + roti"
+    },
+    {
+      "day": 28,
+      "breakfast": "Besan chilla + mint chutney",
+      "lunch": "Jowar roti + chicken",
+      "snacks": "Apple",
+      "dinner": "Steamed fish + veggies"
+    },
+    {
+      "day": 29,
+      "breakfast": "Ragi dosa + sambar",
+      "lunch": "Multigrain roti + dal",
+      "snacks": "Roasted pumpkin seeds",
+      "dinner": "Palak paneer + roti"
+    },
+    {
+      "day": 30,
+      "breakfast": "Whole wheat toast + avocado",
+      "lunch": "Brown rice + sabzi",
+      "snacks": "Watermelon",
+      "dinner": "Grilled chicken + salad"
+    }
+  ],
+  "Obesity": [
+    {
+      "day": 1,
+      "breakfast": "Green smoothie (spinach+apple+lemon)",
+      "lunch": "Large salad + grilled chicken (no rice)",
+      "snacks": "Cucumber + carrot sticks",
+      "dinner": "Vegetable soup + 1 roti"
+    },
+    {
+      "day": 2,
+      "breakfast": "Oats (small portion) + lemon water",
+      "lunch": "Jowar roti (1) + dal + salad",
+      "snacks": "Roasted chana (small)",
+      "dinner": "Stir-fry vegetables + tofu"
+    },
+    {
+      "day": 3,
+      "breakfast": "Boiled eggs (2) + salad",
+      "lunch": "Quinoa (small) + rajma + salad",
+      "snacks": "Apple",
+      "dinner": "Grilled fish + steamed broccoli"
+    },
+    {
+      "day": 4,
+      "breakfast": "Besan chilla (1) + green chutney",
+      "lunch": "Multigrain roti (1) + sabzi",
+      "snacks": "Almonds (6)",
+      "dinner": "Moong dal soup + salad"
+    },
+    {
+      "day": 5,
+      "breakfast": "Ragi porridge (small) + green tea",
+      "lunch": "Brown rice (small) + dal + salad",
+      "snacks": "Pear",
+      "dinner": "Grilled chicken + salad"
+    },
+    {
+      "day": 6,
+      "breakfast": "Sprouts salad + lemon",
+      "lunch": "Bajra roti (1) + methi sabzi",
+      "snacks": "Watermelon (small)",
+      "dinner": "Egg white bhurji + salad"
+    },
+    {
+      "day": 7,
+      "breakfast": "Idli (1) + sambar",
+      "lunch": "Jowar roti (1) + palak dal",
+      "snacks": "Roasted makhana",
+      "dinner": "Vegetable clear soup"
+    },
+    {
+      "day": 8,
+      "breakfast": "Overnight oats (small) + chia",
+      "lunch": "Quinoa + chicken + salad",
+      "snacks": "Guava",
+      "dinner": "Steamed fish + veggies"
+    },
+    {
+      "day": 9,
+      "breakfast": "Vegetable omelette (2 whites)",
+      "lunch": "Multigrain roti (1) + moong dal",
+      "snacks": "Cucumber slices",
+      "dinner": "Paneer tikka (low fat) + salad"
+    },
+    {
+      "day": 10,
+      "breakfast": "Lemon water + oats",
+      "lunch": "Brown rice (small) + sambar",
+      "snacks": "Orange",
+      "dinner": "Dal soup + stir-fry veggies"
+    },
+    {
+      "day": 11,
+      "breakfast": "Besan chilla + mint chutney",
+      "lunch": "Barley khichdi (small) + raita",
+      "snacks": "Apple",
+      "dinner": "Grilled chicken + salad"
+    },
+    {
+      "day": 12,
+      "breakfast": "Smoothie (cucumber+lemon+ginger)",
+      "lunch": "Jowar roti (1) + sabzi",
+      "snacks": "Roasted chana",
+      "dinner": "Moong dal + steamed veggies"
+    },
+    {
+      "day": 13,
+      "breakfast": "Ragi dosa (1) + sambar",
+      "lunch": "Quinoa + rajma (small)",
+      "snacks": "Almonds (6)",
+      "dinner": "Vegetable soup + roti (1)"
+    },
+    {
+      "day": 14,
+      "breakfast": "Boiled eggs + spinach salad",
+      "lunch": "Multigrain roti (1) + palak paneer",
+      "snacks": "Pear",
+      "dinner": "Grilled fish + salad"
+    },
+    {
+      "day": 15,
+      "breakfast": "Oats with seeds (small)",
+      "lunch": "Brown rice (small) + dal fry",
+      "snacks": "Walnuts (4)",
+      "dinner": "Egg curry + salad"
+    },
+    {
+      "day": 16,
+      "breakfast": "Green tea + sprouts",
+      "lunch": "Bajra roti (1) + moong dal",
+      "snacks": "Watermelon",
+      "dinner": "Steamed tofu + veggies"
+    },
+    {
+      "day": 17,
+      "breakfast": "Idli (1) + coconut chutney",
+      "lunch": "Jowar roti (1) + chicken curry",
+      "snacks": "Guava",
+      "dinner": "Dal soup + roti"
+    },
+    {
+      "day": 18,
+      "breakfast": "Vegetable upma (small)",
+      "lunch": "Quinoa + palak dal",
+      "snacks": "Roasted makhana",
+      "dinner": "Grilled paneer + salad"
+    },
+    {
+      "day": 19,
+      "breakfast": "Besan omelette + salad",
+      "lunch": "Brown rice (small) + sambar",
+      "snacks": "Apple",
+      "dinner": "Vegetable clear soup"
+    },
+    {
+      "day": 20,
+      "breakfast": "Overnight oats + flaxseeds",
+      "lunch": "Multigrain roti (1) + rajma",
+      "snacks": "Orange",
+      "dinner": "Chicken salad + roti"
+    },
+    {
+      "day": 21,
+      "breakfast": "Ragi porridge + green tea",
+      "lunch": "Bajra roti (1) + sabzi",
+      "snacks": "Roasted pumpkin seeds",
+      "dinner": "Moong dal + steamed veggies"
+    },
+    {
+      "day": 22,
+      "breakfast": "Sprouts + lemon water",
+      "lunch": "Brown rice (small) + fish curry",
+      "snacks": "Cucumber slices",
+      "dinner": "Grilled chicken + salad"
+    },
+    {
+      "day": 23,
+      "breakfast": "Boiled eggs (2) + toast",
+      "lunch": "Jowar roti (1) + dal",
+      "snacks": "Pear",
+      "dinner": "Steamed fish + broccoli"
+    },
+    {
+      "day": 24,
+      "breakfast": "Smoothie (spinach+apple)",
+      "lunch": "Quinoa + moong dal + salad",
+      "snacks": "Almonds",
+      "dinner": "Vegetable soup + roti"
+    },
+    {
+      "day": 25,
+      "breakfast": "Oats with chia seeds",
+      "lunch": "Multigrain roti (1) + chicken",
+      "snacks": "Guava",
+      "dinner": "Paneer tikka + salad"
+    },
+    {
+      "day": 26,
+      "breakfast": "Besan chilla + yogurt (low fat)",
+      "lunch": "Brown rice (small) + sambar",
+      "snacks": "Walnuts",
+      "dinner": "Dal soup + salad"
+    },
+    {
+      "day": 27,
+      "breakfast": "Green smoothie + sprouts",
+      "lunch": "Bajra roti (1) + rajma",
+      "snacks": "Roasted chana",
+      "dinner": "Grilled fish + veggies"
+    },
+    {
+      "day": 28,
+      "breakfast": "Idli (1) + sambar",
+      "lunch": "Jowar roti (1) + palak dal",
+      "snacks": "Apple",
+      "dinner": "Moong dal + salad"
+    },
+    {
+      "day": 29,
+      "breakfast": "Ragi dosa + coconut chutney",
+      "lunch": "Quinoa + dal + salad",
+      "snacks": "Orange",
+      "dinner": "Egg bhurji + salad"
+    },
+    {
+      "day": 30,
+      "breakfast": "Overnight oats + nuts (small)",
+      "lunch": "Multigrain roti (1) + sabzi",
+      "snacks": "Roasted makhana",
+      "dinner": "Vegetable soup + roti"
+    }
+  ],
+  "Heart disease": [
+    {
+      "day": 1,
+      "breakfast": "Oats with flaxseeds + walnuts",
+      "lunch": "Brown rice + dal + salad (no oil)",
+      "snacks": "Almonds (10)",
+      "dinner": "Grilled fish + steamed veggies"
+    },
+    {
+      "day": 2,
+      "breakfast": "Whole wheat toast + avocado",
+      "lunch": "Multigrain roti + palak dal (less oil)",
+      "snacks": "Walnuts (5)",
+      "dinner": "Moong dal soup + salad"
+    },
+    {
+      "day": 3,
+      "breakfast": "Smoothie (banana+oats+milk)",
+      "lunch": "Jowar roti + rajma (no salt excess)",
+      "snacks": "Pomegranate",
+      "dinner": "Grilled chicken + salad"
+    },
+    {
+      "day": 4,
+      "breakfast": "Ragi porridge + flaxseeds",
+      "lunch": "Quinoa + moong dal + salad",
+      "snacks": "Roasted pumpkin seeds",
+      "dinner": "Steamed fish + broccoli"
+    },
+    {
+      "day": 5,
+      "breakfast": "Idli (2) + sambar (no coconut oil)",
+      "lunch": "Brown rice + sambar + sabzi",
+      "snacks": "Apple",
+      "dinner": "Tofu stir-fry + quinoa"
+    },
+    {
+      "day": 6,
+      "breakfast": "Oats with banana + nuts",
+      "lunch": "Bajra roti + methi sabzi",
+      "snacks": "Orange",
+      "dinner": "Dal soup + multigrain roti"
+    },
+    {
+      "day": 7,
+      "breakfast": "Besan chilla + mint chutney",
+      "lunch": "Multigrain roti + palak paneer (low fat)",
+      "snacks": "Roasted chana",
+      "dinner": "Vegetable soup + roti"
+    },
+    {
+      "day": 8,
+      "breakfast": "Boiled eggs (2) + whole wheat toast",
+      "lunch": "Barley khichdi + raita (low fat)",
+      "snacks": "Guava",
+      "dinner": "Grilled paneer (low fat) + salad"
+    },
+    {
+      "day": 9,
+      "breakfast": "Sprouts salad + green tea",
+      "lunch": "Brown rice + fish curry (less oil)",
+      "snacks": "Almonds",
+      "dinner": "Egg curry + salad"
+    },
+    {
+      "day": 10,
+      "breakfast": "Overnight oats + chia seeds",
+      "lunch": "Jowar roti + dal fry (no ghee)",
+      "snacks": "Watermelon",
+      "dinner": "Paneer tikka + salad"
+    },
+    {
+      "day": 11,
+      "breakfast": "Vegetable omelette (whites) + toast",
+      "lunch": "Quinoa pulao + curd (low fat)",
+      "snacks": "Walnuts",
+      "dinner": "Chicken soup + roti"
+    },
+    {
+      "day": 12,
+      "breakfast": "Ragi dosa + coconut chutney (small)",
+      "lunch": "Multigrain roti + rajma",
+      "snacks": "Pear",
+      "dinner": "Moong dal + steamed veggies"
+    },
+    {
+      "day": 13,
+      "breakfast": "Banana + oats smoothie",
+      "lunch": "Brown rice + palak dal",
+      "snacks": "Roasted makhana",
+      "dinner": "Grilled fish + salad"
+    },
+    {
+      "day": 14,
+      "breakfast": "Whole wheat poha + lemon",
+      "lunch": "Bajra roti + moong dal",
+      "snacks": "Apple",
+      "dinner": "Dal soup + roti"
+    },
+    {
+      "day": 15,
+      "breakfast": "Idli (2) + vegetable sambar",
+      "lunch": "Jowar roti + chicken (no skin)",
+      "snacks": "Pomegranate",
+      "dinner": "Steamed tofu + veggies"
+    },
+    {
+      "day": 16,
+      "breakfast": "Oats with flaxseeds",
+      "lunch": "Quinoa + dal + salad",
+      "snacks": "Almonds",
+      "dinner": "Egg bhurji (whites) + toast"
+    },
+    {
+      "day": 17,
+      "breakfast": "Besan chilla + yogurt (low fat)",
+      "lunch": "Multigrain roti + sabzi (less oil)",
+      "snacks": "Orange",
+      "dinner": "Palak paneer + roti"
+    },
+    {
+      "day": 18,
+      "breakfast": "Ragi porridge + nuts",
+      "lunch": "Brown rice + sambar",
+      "snacks": "Roasted chana",
+      "dinner": "Grilled chicken + salad"
+    },
+    {
+      "day": 19,
+      "breakfast": "Sprouts + poha mix",
+      "lunch": "Bajra roti + methi dal",
+      "snacks": "Guava",
+      "dinner": "Vegetable soup + roti"
+    },
+    {
+      "day": 20,
+      "breakfast": "Overnight oats + seeds",
+      "lunch": "Jowar roti + rajma (no extra salt)",
+      "snacks": "Walnuts",
+      "dinner": "Moong dal khichdi"
+    },
+    {
+      "day": 21,
+      "breakfast": "Smoothie (spinach+banana)",
+      "lunch": "Quinoa + palak dal",
+      "snacks": "Pear",
+      "dinner": "Grilled fish + broccoli"
+    },
+    {
+      "day": 22,
+      "breakfast": "Whole wheat toast + peanut butter",
+      "lunch": "Multigrain roti + chicken",
+      "snacks": "Watermelon",
+      "dinner": "Dal soup + salad"
+    },
+    {
+      "day": 23,
+      "breakfast": "Oats with banana + cinnamon",
+      "lunch": "Brown rice + dal fry",
+      "snacks": "Almonds",
+      "dinner": "Paneer tikka + salad"
+    },
+    {
+      "day": 24,
+      "breakfast": "Boiled eggs + sprouts salad",
+      "lunch": "Bajra roti + sabzi",
+      "snacks": "Roasted makhana",
+      "dinner": "Steamed fish + veggies"
+    },
+    {
+      "day": 25,
+      "breakfast": "Idli + sambar (less oil)",
+      "lunch": "Jowar roti + moong dal",
+      "snacks": "Apple",
+      "dinner": "Chicken soup + roti"
+    },
+    {
+      "day": 26,
+      "breakfast": "Ragi dosa + sambar",
+      "lunch": "Quinoa + rajma + salad",
+      "snacks": "Pomegranate",
+      "dinner": "Grilled paneer + salad"
+    },
+    {
+      "day": 27,
+      "breakfast": "Besan chilla + green chutney",
+      "lunch": "Brown rice + palak dal",
+      "snacks": "Walnuts",
+      "dinner": "Egg curry + roti"
+    },
+    {
+      "day": 28,
+      "breakfast": "Overnight oats + flaxseeds",
+      "lunch": "Multigrain roti + sabzi",
+      "snacks": "Guava",
+      "dinner": "Dal soup + steamed veggies"
+    },
+    {
+      "day": 29,
+      "breakfast": "Vegetable upma (less oil)",
+      "lunch": "Bajra roti + dal",
+      "snacks": "Orange",
+      "dinner": "Tofu stir-fry + quinoa"
+    },
+    {
+      "day": 30,
+      "breakfast": "Oats with nuts + seeds",
+      "lunch": "Brown rice + fish curry (less oil)",
+      "snacks": "Roasted pumpkin seeds",
+      "dinner": "Moong dal + roti"
+    }
+  ],
+  "Thyroid": [
+    {
+      "day": 1,
+      "breakfast": "Oats with nuts + seeds (no soy)",
+      "lunch": "Brown rice + dal + salad",
+      "snacks": "Brazil nuts (2)",
+      "dinner": "Grilled fish + steamed veggies"
+    },
+    {
+      "day": 2,
+      "breakfast": "Whole wheat toast + eggs",
+      "lunch": "Multigrain roti + palak dal",
+      "snacks": "Almonds (10)",
+      "dinner": "Chicken soup + roti"
+    },
+    {
+      "day": 3,
+      "breakfast": "Smoothie (banana+milk+nuts)",
+      "lunch": "Jowar roti + rajma + salad",
+      "snacks": "Pumpkin seeds",
+      "dinner": "Paneer curry + quinoa"
+    },
+    {
+      "day": 4,
+      "breakfast": "Ragi porridge + flaxseeds",
+      "lunch": "Brown rice + fish curry",
+      "snacks": "Apple",
+      "dinner": "Dal soup + steamed veggies"
+    },
+    {
+      "day": 5,
+      "breakfast": "Idli (2) + sambar",
+      "lunch": "Quinoa + moong dal + salad",
+      "snacks": "Walnuts (5)",
+      "dinner": "Grilled chicken + salad"
+    },
+    {
+      "day": 6,
+      "breakfast": "Boiled eggs (2) + whole wheat toast",
+      "lunch": "Bajra roti + methi sabzi",
+      "snacks": "Orange",
+      "dinner": "Moong dal khichdi"
+    },
+    {
+      "day": 7,
+      "breakfast": "Besan chilla + green chutney",
+      "lunch": "Multigrain roti + chicken curry",
+      "snacks": "Brazil nuts (2)",
+      "dinner": "Steamed fish + veggies"
+    },
+    {
+      "day": 8,
+      "breakfast": "Vegetable omelette + toast",
+      "lunch": "Barley khichdi + raita",
+      "snacks": "Guava",
+      "dinner": "Tofu (small) stir-fry + roti"
+    },
+    {
+      "day": 9,
+      "breakfast": "Overnight oats + chia seeds",
+      "lunch": "Brown rice + sambar + sabzi",
+      "snacks": "Pumpkin seeds",
+      "dinner": "Egg curry + salad"
+    },
+    {
+      "day": 10,
+      "breakfast": "Sprouts salad + lemon",
+      "lunch": "Jowar roti + dal fry",
+      "snacks": "Almonds",
+      "dinner": "Palak paneer + roti"
+    },
+    {
+      "day": 11,
+      "breakfast": "Ragi dosa + coconut chutney",
+      "lunch": "Quinoa + rajma + salad",
+      "snacks": "Watermelon",
+      "dinner": "Chicken soup + roti"
+    },
+    {
+      "day": 12,
+      "breakfast": "Oats with banana + milk",
+      "lunch": "Multigrain roti + palak dal",
+      "snacks": "Apple",
+      "dinner": "Grilled fish + salad"
+    },
+    {
+      "day": 13,
+      "breakfast": "Whole wheat poha + lemon",
+      "lunch": "Brown rice + moong dal",
+      "snacks": "Walnuts",
+      "dinner": "Dal soup + roti"
+    },
+    {
+      "day": 14,
+      "breakfast": "Idli + vegetable sambar",
+      "lunch": "Bajra roti + sabzi + dal",
+      "snacks": "Brazil nuts (2)",
+      "dinner": "Steamed paneer + veggies"
+    },
+    {
+      "day": 15,
+      "breakfast": "Besan chilla + yogurt",
+      "lunch": "Jowar roti + chicken (no soy sauce)",
+      "snacks": "Orange",
+      "dinner": "Moong dal + roti"
+    },
+    {
+      "day": 16,
+      "breakfast": "Smoothie (banana+oats)",
+      "lunch": "Quinoa + dal + salad",
+      "snacks": "Pumpkin seeds",
+      "dinner": "Egg bhurji + toast"
+    },
+    {
+      "day": 17,
+      "breakfast": "Ragi porridge + nuts",
+      "lunch": "Multigrain roti + fish curry",
+      "snacks": "Guava",
+      "dinner": "Palak chicken + roti"
+    },
+    {
+      "day": 18,
+      "breakfast": "Boiled eggs + sprouts",
+      "lunch": "Brown rice + rajma",
+      "snacks": "Almonds",
+      "dinner": "Vegetable soup + roti"
+    },
+    {
+      "day": 19,
+      "breakfast": "Overnight oats + flaxseeds",
+      "lunch": "Bajra roti + dal tadka",
+      "snacks": "Watermelon",
+      "dinner": "Grilled paneer + salad"
+    },
+    {
+      "day": 20,
+      "breakfast": "Vegetable upma + green tea",
+      "lunch": "Jowar roti + palak dal",
+      "snacks": "Apple",
+      "dinner": "Moong dal khichdi + curd"
+    },
+    {
+      "day": 21,
+      "breakfast": "Oats with seeds + milk",
+      "lunch": "Quinoa + moong dal",
+      "snacks": "Brazil nuts (2)",
+      "dinner": "Chicken soup + roti"
+    },
+    {
+      "day": 22,
+      "breakfast": "Besan chilla + mint chutney",
+      "lunch": "Brown rice + sambar + sabzi",
+      "snacks": "Pumpkin seeds",
+      "dinner": "Grilled fish + veggies"
+    },
+    {
+      "day": 23,
+      "breakfast": "Ragi dosa + sambar",
+      "lunch": "Multigrain roti + rajma",
+      "snacks": "Walnuts",
+      "dinner": "Dal soup + salad"
+    },
+    {
+      "day": 24,
+      "breakfast": "Whole wheat toast + peanut butter",
+      "lunch": "Bajra roti + methi dal",
+      "snacks": "Orange",
+      "dinner": "Paneer tikka + salad"
+    },
+    {
+      "day": 25,
+      "breakfast": "Sprouts + poha mix",
+      "lunch": "Brown rice + fish curry",
+      "snacks": "Almonds",
+      "dinner": "Egg curry + roti"
+    },
+    {
+      "day": 26,
+      "breakfast": "Idli + sambar",
+      "lunch": "Jowar roti + dal fry",
+      "snacks": "Guava",
+      "dinner": "Steamed veggies + chicken"
+    },
+    {
+      "day": 27,
+      "breakfast": "Overnight oats + nuts",
+      "lunch": "Quinoa + palak dal",
+      "snacks": "Brazil nuts",
+      "dinner": "Moong dal + roti"
+    },
+    {
+      "day": 28,
+      "breakfast": "Boiled eggs + salad",
+      "lunch": "Multigrain roti + sabzi",
+      "snacks": "Apple",
+      "dinner": "Grilled fish + broccoli"
+    },
+    {
+      "day": 29,
+      "breakfast": "Ragi porridge + banana",
+      "lunch": "Brown rice + rajma + salad",
+      "snacks": "Pumpkin seeds",
+      "dinner": "Tofu + quinoa"
+    },
+    {
+      "day": 30,
+      "breakfast": "Oats with flaxseeds + cinnamon",
+      "lunch": "Bajra roti + dal + salad",
+      "snacks": "Watermelon",
+      "dinner": "Chicken soup + roti"
+    }
+  ],
+  "Normal": [
+    {
+      "day": 1,
+      "breakfast": "Oats with fruits + nuts",
+      "lunch": "Rice + dal + sabzi + salad",
+      "snacks": "Fruits or nuts",
+      "dinner": "Roti + sabzi + curd"
+    },
+    {
+      "day": 2,
+      "breakfast": "Idli (3) + sambar + chutney",
+      "lunch": "Rice + rajma + salad",
+      "snacks": "Roasted chana",
+      "dinner": "Roti + dal + salad"
+    },
+    {
+      "day": 3,
+      "breakfast": "Whole wheat toast + eggs + juice",
+      "lunch": "Multigrain roti + palak paneer",
+      "snacks": "Almonds + apple",
+      "dinner": "Rice + chicken curry + salad"
+    },
+    {
+      "day": 4,
+      "breakfast": "Smoothie + oats",
+      "lunch": "Rice + fish curry + sabzi",
+      "snacks": "Banana + nuts",
+      "dinner": "Roti + dal tadka + curd"
+    },
+    {
+      "day": 5,
+      "breakfast": "Poha + lemon + peanuts",
+      "lunch": "Roti + chole + raita",
+      "snacks": "Roasted makhana",
+      "dinner": "Rice + moong dal + sabzi"
+    },
+    {
+      "day": 6,
+      "breakfast": "Upma + coconut chutney",
+      "lunch": "Rice + sambar + papad",
+      "snacks": "Orange + walnuts",
+      "dinner": "Roti + paneer sabzi + salad"
+    },
+    {
+      "day": 7,
+      "breakfast": "Boiled eggs (2) + toast + juice",
+      "lunch": "Roti + chicken curry + salad",
+      "snacks": "Dates + almonds",
+      "dinner": "Rice + dal + sabzi"
+    },
+    {
+      "day": 8,
+      "breakfast": "Ragi dosa + sambar",
+      "lunch": "Rice + rajma + salad",
+      "snacks": "Pear + nuts",
+      "dinner": "Roti + egg curry + curd"
+    },
+    {
+      "day": 9,
+      "breakfast": "Besan chilla + chutney + curd",
+      "lunch": "Roti + palak dal + sabzi",
+      "snacks": "Roasted chana",
+      "dinner": "Rice + fish curry + salad"
+    },
+    {
+      "day": 10,
+      "breakfast": "Overnight oats + seeds + fruits",
+      "lunch": "Rice + chicken + sabzi",
+      "snacks": "Apple + peanut butter",
+      "dinner": "Roti + dal + raita"
+    },
+    {
+      "day": 11,
+      "breakfast": "Paratha (1) + curd + pickle",
+      "lunch": "Roti + dal makhani + salad",
+      "snacks": "Almonds + orange",
+      "dinner": "Rice + sambar + papad"
+    },
+    {
+      "day": 12,
+      "breakfast": "Sprouts + poha + tea",
+      "lunch": "Rice + sabzi + dal + salad",
+      "snacks": "Roasted makhana",
+      "dinner": "Roti + paneer curry + curd"
+    },
+    {
+      "day": 13,
+      "breakfast": "Vegetable omelette + toast",
+      "lunch": "Roti + chole + raita",
+      "snacks": "Banana + walnuts",
+      "dinner": "Rice + moong dal + sabzi"
+    },
+    {
+      "day": 14,
+      "breakfast": "Idli + sambar + chutney",
+      "lunch": "Rice + fish curry + sabzi",
+      "snacks": "Guava + nuts",
+      "dinner": "Roti + chicken sabzi + salad"
+    },
+    {
+      "day": 15,
+      "breakfast": "Oats with milk + banana",
+      "lunch": "Roti + rajma + salad",
+      "snacks": "Dates + almonds",
+      "dinner": "Rice + dal + papad"
+    },
+    {
+      "day": 16,
+      "breakfast": "Ragi porridge + fruits",
+      "lunch": "Rice + chicken biryani + raita",
+      "snacks": "Apple",
+      "dinner": "Roti + palak paneer + curd"
+    },
+    {
+      "day": 17,
+      "breakfast": "Whole wheat poha + peanuts",
+      "lunch": "Roti + dal tadka + sabzi",
+      "snacks": "Roasted chana",
+      "dinner": "Rice + sambar + sabzi"
+    },
+    {
+      "day": 18,
+      "breakfast": "Smoothie + toast + eggs",
+      "lunch": "Rice + mutton curry + salad",
+      "snacks": "Orange + walnuts",
+      "dinner": "Roti + dal + curd"
+    },
+    {
+      "day": 19,
+      "breakfast": "Besan chilla + curd",
+      "lunch": "Roti + chole + salad",
+      "snacks": "Pear + almonds",
+      "dinner": "Rice + fish + sabzi"
+    },
+    {
+      "day": 20,
+      "breakfast": "Overnight oats + honey + nuts",
+      "lunch": "Rice + palak dal + sabzi",
+      "snacks": "Banana + peanut butter",
+      "dinner": "Roti + paneer + raita"
+    },
+    {
+      "day": 21,
+      "breakfast": "Paratha + butter + curd",
+      "lunch": "Roti + rajma + raita",
+      "snacks": "Guava + nuts",
+      "dinner": "Rice + dal fry + salad"
+    },
+    {
+      "day": 22,
+      "breakfast": "Vegetable upma + chutney",
+      "lunch": "Rice + chicken + sabzi",
+      "snacks": "Roasted makhana",
+      "dinner": "Roti + egg curry + curd"
+    },
+    {
+      "day": 23,
+      "breakfast": "Idli + vegetable sambar",
+      "lunch": "Roti + dal + palak + salad",
+      "snacks": "Dates + almonds",
+      "dinner": "Rice + fish curry + sabzi"
+    },
+    {
+      "day": 24,
+      "breakfast": "Boiled eggs + oats + juice",
+      "lunch": "Rice + chole + raita",
+      "snacks": "Apple + walnuts",
+      "dinner": "Roti + moong dal + sabzi"
+    },
+    {
+      "day": 25,
+      "breakfast": "Ragi dosa + coconut chutney",
+      "lunch": "Roti + chicken curry + salad",
+      "snacks": "Orange + nuts",
+      "dinner": "Rice + dal + papad"
+    },
+    {
+      "day": 26,
+      "breakfast": "Oats with fruits + seeds",
+      "lunch": "Rice + rajma + salad",
+      "snacks": "Roasted chana",
+      "dinner": "Roti + paneer sabzi + curd"
+    },
+    {
+      "day": 27,
+      "breakfast": "Sprouts salad + toast",
+      "lunch": "Roti + dal tadka + sabzi",
+      "snacks": "Banana + peanut butter",
+      "dinner": "Rice + sambar + sabzi"
+    },
+    {
+      "day": 28,
+      "breakfast": "Smoothie + granola",
+      "lunch": "Rice + fish + salad",
+      "snacks": "Pear + almonds",
+      "dinner": "Roti + dal + raita"
+    },
+    {
+      "day": 29,
+      "breakfast": "Besan chilla + mint chutney",
+      "lunch": "Roti + chole + salad",
+      "snacks": "Guava + nuts",
+      "dinner": "Rice + chicken + sabzi"
+    },
+    {
+      "day": 30,
+      "breakfast": "Poha + lemon + tea",
+      "lunch": "Rice + palak paneer + roti",
+      "snacks": "Roasted makhana",
+      "dinner": "Roti + moong dal + salad"
+    }
+  ]
+}
